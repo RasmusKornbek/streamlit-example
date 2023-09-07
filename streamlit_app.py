@@ -1,10 +1,11 @@
-from snowflake.snowpark.context import get_active_session
-from snowflake.snowpark.functions import sum, col
-import altair as alt
 import streamlit as st
 
-# Set page config
-st.set_page_config(layout="wide")
+# Initialize connection.
+conn = st.experimental_connection('snowpark')
 
-# Get current session
-session = get_active_session()
+# Perform query.
+df = conn.query('SELECT * from mytable;', ttl=600)
+
+# Print results.
+for row in df.itertuples():
+    st.write(f"{row.NAME} has a :{row.PET}:")
