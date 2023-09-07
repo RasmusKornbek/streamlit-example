@@ -23,6 +23,8 @@ conn = snowflake.connector.connect(
     schema=snowflake_schema
 )
 
+mytable = "mytable"
+
 # Query Snowflake table
 query = f"SELECT * FROM {mytable}"
 df = pd.read_sql(query, conn)
