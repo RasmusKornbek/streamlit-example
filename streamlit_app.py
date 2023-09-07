@@ -10,8 +10,8 @@ snowflake_account = st.secrets["account"]
 snowflake_username = st.secrets["username"]
 snowflake_password = st.secrets["password"]
 snowflake_database = st.secrets["database"]
+snowflake_role = st.secrets["role"]
 snowflake_schema = st.secrets["schema"]
-snowflake_table = st.secrets["table"]
 
 # Connect to Snowflake
 conn = snowflake.connector.connect(
@@ -19,6 +19,7 @@ conn = snowflake.connector.connect(
     user=snowflake_username,
     password=snowflake_password,
     database=snowflake_database,
+    role=snowflake_role,
     schema=snowflake_schema
 )
 
