@@ -6,12 +6,12 @@ import snowflake.connector
 st.title("Snowflake Table Viewer")
 
 # Get Snowflake secrets from Streamlit Secrets
-snowflake_account = st.secrets["snowflake_account"]
-snowflake_username = st.secrets["snowflake_username"]
-snowflake_password = st.secrets["snowflake_password"]
-snowflake_database = st.secrets["snowflake_database"]
-snowflake_schema = st.secrets["snowflake_schema"]
-snowflake_table = st.secrets["snowflake_table"]
+snowflake_account = st.secrets["account"]
+snowflake_username = st.secrets["username"]
+snowflake_password = st.secrets["password"]
+snowflake_database = st.secrets["database"]
+snowflake_schema = st.secrets["schema"]
+snowflake_table = st.secrets["table"]
 
 # Connect to Snowflake
 conn = snowflake.connector.connect(
@@ -23,7 +23,7 @@ conn = snowflake.connector.connect(
 )
 
 # Query Snowflake table
-query = f"SELECT * FROM {snowflake_table}"
+query = f"SELECT * FROM {mytable}"
 df = pd.read_sql(query, conn)
 
 # Display the table in Streamlit
