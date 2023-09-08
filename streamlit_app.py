@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import snowflake.connector
+import numpy as np
 
 # Streamlit app title
 st.title("Snowflake Table Viewer")
