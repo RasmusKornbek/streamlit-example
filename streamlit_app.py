@@ -34,3 +34,7 @@ st.write(df)
 
 # Close Snowflake connection
 conn.close()
+
+st.write("Line Chart")
+chart_data = pd.DataFrame(np.random.randn(20, 1), columns=["Value"])
+st.line_chart(chart_data)
