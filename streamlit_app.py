@@ -33,7 +33,7 @@ conn = snowflake.connector.connect(
 # SQL query
 sql_query = """
 SELECT 
-    Salary,
+    "Salary",
     "Business Unit",
     "City",
     "Country",
@@ -60,6 +60,13 @@ df = pd.DataFrame(data, columns=[
 cursor.close()
 conn.close()
 
+# Set page configuration
+st.set_page_config(
+    page_title="Employee Salary Dashboard",
+    page_icon="💼",
+    layout="wide"
+)
+
 # Dashboard layout
 st.title('Employee Salary Dashboard')
 
@@ -83,3 +90,13 @@ fig_salary_distribution_by_gender, ax_salary_distribution_by_gender = plt.subplo
 ax_salary_distribution_by_gender.pie(salary_distribution_by_gender, labels=salary_distribution_by_gender.index, autopct='%1.1f%%')
 ax_salary_distribution_by_gender.set_aspect('equal')
 st.pyplot(fig_salary_distribution_by_gender)
+
+# Scatter plot of salary vs. hire date
+st.write('## Salary vs. Hire Date')
+df['Hire Date'] = pd.to_datetime(df['Hire Date'])
+fig_salary_vs_hire_date, ax_salary_vs_hire_date = plt.subplots()
+ax_salary_vs_hire_date.scatter(df['Hire Date'], df['Salary'], alpha=0.5)
+ax_salary_vs_hire_date.set_xlabel('Hire Date')
+ax_salary_vs_hire_date.set_ylabel('Salary')
+ax_salary_vs_hire_date.set_title('Salary vs. Hire Date')
+st.pyplot(fig_salary_vs_hire_date)
