@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import pyodbc
 
 # Streamlit app title
-st.title("Snowflake Table Viewer")
+
 
 # Get Snowflake secrets from Streamlit Secrets
 snowflake_account = st.secrets["account"]
