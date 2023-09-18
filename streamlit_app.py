@@ -33,7 +33,7 @@ conn = snowflake.connector.connect(
 # SQL query
 sql_query = """
 SELECT 
-    "Salary",
+    Salary,
     "Business Unit",
     "City",
     "Country",
