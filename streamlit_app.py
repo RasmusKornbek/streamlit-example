@@ -71,17 +71,17 @@ st.sidebar.image("logo1.png",caption="Developed and Maintaned by: Rasmus: +45287
 
 #switcher
 st.sidebar.header("Please filter")
-region=st.sidebar.multiselect(
+country=st.sidebar.multiselect(
     "Select Country",
      options=df["Country"].unique(),
      default=df["Country"].unique(),
 )
-location=st.sidebar.multiselect(
+city=st.sidebar.multiselect(
     "Select City",
      options=df["City"].unique(),
      default=df["City"].unique(),
 )
-construction=st.sidebar.multiselect(
+'Business Unit'=st.sidebar.multiselect(
     "Select Business Unit",
      options=df["Business Unit"].unique(),
      default=df["Business Unit"].unique(),
