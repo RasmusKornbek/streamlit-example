@@ -3,3 +3,7 @@ pandas
 streamlit
 matplotlib
 pyodbc
+streamlit_option_menu
+plotly
+time
+numerize
