@@ -66,4 +66,23 @@ conn.close()
 
 
 #side bar
-st.sidebar.image("logo1.png",caption="Developed and Maintaned by: samir: +255675839840")
+st.sidebar.image("logo1.png",caption="Developed and Maintaned by: Rasmus: +4528765537")
+
+
+#switcher
+st.sidebar.header("Please filter")
+region=st.sidebar.multiselect(
+    "Select Country",
+     options=df["Country"].unique(),
+     default=df["Country"].unique(),
+)
+location=st.sidebar.multiselect(
+    "Select City",
+     options=df["City"].unique(),
+     default=df["City"].unique(),
+)
+construction=st.sidebar.multiselect(
+    "Select Business Unit",
+     options=df["Business Unit"].unique(),
+     default=df["Construction"].unique(),
+)
