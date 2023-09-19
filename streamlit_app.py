@@ -95,6 +95,13 @@ df_selection=df.query(
 
 st.dataframe(df_selection)
 
+def Home():
+    with st.expander("⏰ My Excel WorkBook"):
+        showData=st.multiselect('Filter: ',df_selection.columns,default=["Salary","BusinessUnit","City","Country","EEID","Ethnicity","ExitDate","FullName","Gender","HireDate","JobTitle"])
+        st.dataframe(df_selection[showData],use_container_width=True)
+
+Home()
+
 
 
 
