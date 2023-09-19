@@ -132,7 +132,6 @@ def Home():
 
 
 #graphs
-
 def graphs():
     #total_investment=int(df_selection["Investment"]).sum()
     #averageRating=int(round(df_selection["Rating"]).mean(),2)
@@ -143,7 +142,7 @@ def graphs():
     )
     fig_investment=px.bar(
        investment_by_business_type,
-       x="Investment",
+       x="Salary",
        y=investment_by_business_type.index,
        orientation="h",
        title="<b> Investment by Business Type </b>",
