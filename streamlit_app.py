@@ -93,7 +93,6 @@ df_selection=df.query(
     "Country==@country & City==@city & BusinessUnit==@businessunit"
 )
 
-st.write(df)
 st.dataframe(df_selection)
 
 
