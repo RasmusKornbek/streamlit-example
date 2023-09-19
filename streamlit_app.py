@@ -84,5 +84,5 @@ location=st.sidebar.multiselect(
 construction=st.sidebar.multiselect(
     "Select Business Unit",
      options=df["Business Unit"].unique(),
-     default=df["Construction"].unique(),
+     default=df["Business Unit"].unique(),
 )
