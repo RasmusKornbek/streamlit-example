@@ -88,10 +88,6 @@ businessunit=st.sidebar.multiselect(
 )
 
 
-df_selection=df.query(
-    "Country==@country & City==@city & BusinessUnit==@businessunit"
-)
-
 
 def Home():
     with st.expander("⏰ My Excel WorkBook"):
