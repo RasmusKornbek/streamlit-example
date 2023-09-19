@@ -89,6 +89,6 @@ construction=st.sidebar.multiselect(
 
 
 df_selection=df.query(
-    "Country==@country & City==@city & Business Unit ==@Business Unit"
+    "Country==@country & City==@city & 'Business Unit' ==@'Business Unit'"
 )
 
