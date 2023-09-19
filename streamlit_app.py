@@ -37,16 +37,16 @@ conn = snowflake.connector.connect(
 sql_query = """
 SELECT 
     Salary,
-    "Business Unit",
+    "BusinessUnit",
     "City",
     "Country",
     "EEID",
     "Ethnicity",
-    "Exit Date",
-    "Full Name",
+    "ExitDate",
+    "FullName",
     "Gender",
-    "Hire Date",
-    "Job Title"
+    "HireDate",
+    "JobTitle"
 FROM ALTERYXCLOUD.dsi.streamlit_salary
 """
 
@@ -55,8 +55,8 @@ cursor = conn.cursor()
 cursor.execute(sql_query)
 data = cursor.fetchall()
 df = pd.DataFrame(data, columns=[
-    'Salary', 'Business Unit', 'City', 'Country', 'EEID', 
-    'Ethnicity', 'Exit Date', 'Full Name', 'Gender', 'Hire Date', 'Job Title'
+    'Salary', 'BusinessUnit', 'City', 'Country', 'EEID', 
+    'Ethnicity', 'ExitDate', 'FullName', 'Gender', 'HireDate', 'JobTitle'
 ])
 
 # Close the cursor and connection
@@ -83,13 +83,13 @@ city=st.sidebar.multiselect(
 )
 bu=st.sidebar.multiselect(
     "Select Business Unit",
-     options=df["Business Unit"].unique(),
-     default=df["Business Unit"].unique(),
+     options=df["BusinessUnit"].unique(),
+     default=df["BusinessUnit"].unique(),
 )
 
 
 df_selection=df.query(
-    "Country==@country & City==@city & `Business Unit`==@bu"
+    "Country==@country & City==@city & BusinessUnit==@bu"
 )
 
 def Home():
