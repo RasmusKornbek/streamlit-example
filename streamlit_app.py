@@ -94,18 +94,14 @@ df_selection=df.query(
 )
 
 
-
-st.write("Line Chart")
-chart_data = pd.DataFrame(np.random.randn(20, 1), columns=["Value"])
-st.line_chart(chart_data)
-
-
-    with st.expander("⏰ Test"):
-        showData=st.multiselect('Filter: ',df_selection.columns,default=['Salary', 'BusinessUnit', 'City', 'Country', 'EEID', 
-    'Ethnicity', 'ExitDate', 'FullName', 'Gender', 'HireDate', 'JobTitle'])
-        st.dataframe(df_selection[showData],use_container_width=True)
-    #compute top analytics
-    total_investment = float(df_selection['Salary'].sum())
+# Bar chart of average salary by business unit
+st.write('## Average Salary by Business Unit')
+avg_salary_by_business_unit = df.groupby('BusinessUnit')['Salary'].mean()
+fig_avg_salary_by_business_unit, ax_avg_salary_by_business_unit = plt.subplots()
+ax_avg_salary_by_business_unit.bar(avg_salary_by_business_unit.index, avg_salary_by_business_unit.values)
+ax_avg_salary_by_business_unit.set_xlabel('BusinessUnit')
+ax_avg_salary_by_business_unit.set_ylabel('AverageSalary')
+st.pyplot(fig_avg_salary_by_business_unit)
 
 
 
