@@ -2,6 +2,7 @@ import streamlit as st
 import snowflake.connector
 import pandas as pd
 import plotly.express as px
+import numpy as np
 from streamlit_option_menu import option_menu
 from numerize.numerize import numerize
 #from query import *
