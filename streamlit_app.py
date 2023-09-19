@@ -49,3 +49,21 @@ SELECT
     "Job Title"
 FROM ALTERYXCLOUD.dsi.streamlit_salary
 """
+
+# Execute the query and fetch data into a DataFrame
+cursor = conn.cursor()
+cursor.execute(sql_query)
+data = cursor.fetchall()
+df = pd.DataFrame(data, columns=[
+    'Salary', 'Business Unit', 'City', 'Country', 'EEID', 
+    'Ethnicity', 'Exit Date', 'Full Name', 'Gender', 'Hire Date', 'Job Title'
+])
+
+# Close the cursor and connection
+cursor.close()
+conn.close()
+ 
+
+
+#side bar
+st.sidebar.image("data/logo1.png",caption="Developed and Maintaned by: samir: +255675839840")
