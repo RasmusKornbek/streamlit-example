@@ -93,7 +93,7 @@ df_selection=df.query(
     "Country==@country & City==@city & BusinessUnit==@businessunit"
 )
 
-st.dataframe(df_selection)
+
 
 def Home():
     with st.expander("⏰ My Excel WorkBook"):
