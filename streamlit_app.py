@@ -92,3 +92,15 @@ df_selection=df.query(
     "Country==@country & City==@city & `Business Unit`==@BU"
 )
 
+def Home():
+    with st.expander("⏰ My Excel WorkBook"):
+        showData=st.multiselect('Filter: ',df_selection.columns,default=['Salary', 'Business Unit', 'City', 'Country', 'EEID', 
+    'Ethnicity', 'Exit Date', 'Full Name', 'Gender', 'Hire Date', 'Job Title'])
+        st.dataframe(df_selection[showData],use_container_width=True)
+    #compute top analytics
+    total_investment = float(df_selection['Salary'].sum())
+    investment_mode = float(df_selection['Salary'].mode())
+    investment_mean = float(df_selection['Salary'].mean())
+    investment_median= float(df_selection['Salary'].median()) 
+    rating = float(df_selection['Salary'].sum())
+
