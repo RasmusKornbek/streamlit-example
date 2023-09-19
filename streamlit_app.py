@@ -89,7 +89,7 @@ bu=st.sidebar.multiselect(
 
 
 df_selection=df.query(
-    "Country==@country & City==@city & 'Business Unit'==@bu"
+    "Country==@country & City==@city & `Business Unit`==@bu"
 )
 
 def Home():
