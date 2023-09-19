@@ -81,7 +81,7 @@ city=st.sidebar.multiselect(
      options=df["City"].unique(),
      default=df["City"].unique(),
 )
-BU=st.sidebar.multiselect(
+bu=st.sidebar.multiselect(
     "Select Business Unit",
      options=df["Business Unit"].unique(),
      default=df["Business Unit"].unique(),
@@ -89,7 +89,7 @@ BU=st.sidebar.multiselect(
 
 
 df_selection=df.query(
-    "Country==@country & City==@city & "Business Unit"==@BU"
+    "Country==@country & City==@city & 'Business Unit'==@bu"
 )
 
 def Home():
