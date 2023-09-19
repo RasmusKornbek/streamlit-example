@@ -131,30 +131,6 @@ def Home():
 
 
 
-#graphs
-def graphs():
-    #total_investment=int(df_selection["Investment"]).sum()
-    #averageRating=int(round(df_selection["Rating"]).mean(),2)
-    
-    #simple bar graph
-    investment_by_business_type=(
-        df_selection.groupby(by=["BusinessUnit"]).count()[["Salary"]].sort_values(by="BusinessUnit")
-    )
-    fig_investment=px.bar(
-       investment_by_business_type,
-       x="Salary",
-       y=investment_by_business_type.index,
-       orientation="h",
-       title="<b> Investment by Business Type </b>",
-       color_discrete_sequence=["#0083B8"]*len(investment_by_business_type),
-       template="plotly_white",
-    )
-
-
-    fig_investment.update_layout(
-    plot_bgcolor="rgba(0,0,0,0)",
-    xaxis=(dict(showgrid=False))
-     )
 
 
 st.write("Line Chart")
