@@ -94,17 +94,7 @@ df_selection=df.query(
 )
 
 
-# Bar chart of average salary by business unit
-# Bar chart of average salary by business unit
-st.write('## Average Salary by Business Unit')
-avg_salary_by_business_unit = df.groupby('BusinessUnit')['Salary'].mean()
-fig_avg_salary_by_business_unit, ax_avg_salary_by_business_unit = plt.subplots()
-ax_avg_salary_by_business_unit.bar(avg_salary_by_business_unit.index, avg_salary_by_business_unit.values)
-ax_avg_salary_by_business_unit.set_xlabel('BusinessUnit')
-ax_avg_salary_by_business_unit.set_ylabel('AverageSalary')
-st.pyplot(fig_avg_salary_by_business_unit)
-
-
+st.dataframe(df_selection)
 
 
 
