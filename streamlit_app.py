@@ -81,7 +81,7 @@ city=st.sidebar.multiselect(
      options=df["City"].unique(),
      default=df["City"].unique(),
 )
-bu=st.sidebar.multiselect(
+businessunit=st.sidebar.multiselect(
     "Select Business Unit",
      options=df["BusinessUnit"].unique(),
      default=df["BusinessUnit"].unique(),
@@ -89,13 +89,13 @@ bu=st.sidebar.multiselect(
 
 
 df_selection=df.query(
-    "Country==@country & City==@city & BusinessUnit==@bu"
+    "Country==@country & City==@city & BusinessUnit==@businessunit"
 )
 
 def Home():
     with st.expander("⏰ My Excel WorkBook"):
-        showData=st.multiselect('Filter: ',df_selection.columns,default=['Salary', 'Business Unit', 'City', 'Country', 'EEID', 
-    'Ethnicity', 'Exit Date', 'Full Name', 'Gender', 'Hire Date', 'Job Title'])
+        showData=st.multiselect('Filter: ',df_selection.columns,default=['Salary', 'BusinessUnit', 'City', 'Country', 'EEID', 
+    'Ethnicity', 'ExitDate', 'FullName', 'Gender', 'HireDate', 'JobTitle'])
         st.dataframe(df_selection[showData],use_container_width=True)
     #compute top analytics
     total_investment = float(df_selection['Salary'].sum())
