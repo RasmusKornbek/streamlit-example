@@ -66,4 +66,4 @@ conn.close()
 
 
 #side bar
-st.sidebar.image("data/logo1.png",caption="Developed and Maintaned by: samir: +255675839840")
+st.sidebar.image("logo1.png",caption="Developed and Maintaned by: samir: +255675839840")
