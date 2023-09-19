@@ -86,3 +86,9 @@ construction=st.sidebar.multiselect(
      options=df["Business Unit"].unique(),
      default=df["Business Unit"].unique(),
 )
+
+
+df_selection=df.query(
+    "Country==@country & City==@city & Business Unit ==@Business Unit"
+)
+
