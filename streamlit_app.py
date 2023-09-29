@@ -103,30 +103,6 @@ def Home():
 Home()
 
 
-url = "https://api.openai.com/v1/chat/completions"
-headers = {
-    "Content-Type": "application/json",
-    "Authorization": "Bearer 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"
-}
-
-data = {
-    "model": "gpt-3.5-turbo",
-    "messages": [{"role": "user", "content": "do you remember out chat history"}],
-    "temperature": 0.7
-}
-
-response = requests.post(url, headers=headers, data=json.dumps(data))
-
-if response.status_code == 200:
-    result = response.json()
-    print("Generated response:", result['choices'][0]['message']['content'])
-else:
-    print("Error:", response.status_code, response.text)
-
-
-st.write(response)
-
-
 
 
 
