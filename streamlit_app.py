@@ -7,6 +7,8 @@ from streamlit_option_menu import option_menu
 from numerize.numerize import numerize
 #from query import *
 import time
+import requests
+import json
 
 st.set_page_config(page_title="Dashboard",page_icon="🌍",layout="wide")
 st.subheader("🔔  Analytics Dashboard")
@@ -100,6 +102,26 @@ def Home():
 
 Home()
 
+
+url = "https://api.openai.com/v1/chat/completions"
+headers = {
+    "Content-Type": "application/json",
+    "Authorization": "Bearer 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"
+}
+
+data = {
+    "model": "gpt-3.5-turbo",
+    "messages": [{"role": "user", "content": "do you remember out chat history"}],
+    "temperature": 0.7
+}
+
+response = requests.post(url, headers=headers, data=json.dumps(data))
+
+if response.status_code == 200:
+    result = response.json()
+    print("Generated response:", result['choices'][0]['message']['content'])
+else:
+    print("Error:", response.status_code, response.text)
 
 
 
