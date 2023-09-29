@@ -124,7 +124,7 @@ else:
     print("Error:", response.status_code, response.text)
 
 
-
+st.write(response)
 
 
 
